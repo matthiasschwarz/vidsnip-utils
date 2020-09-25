@@ -9,3 +9,4 @@ export {
   InputErrorLess,
 } from './error'
 export { validId } from './youtube'
+export { capitalizeFirstLetter } from './string'
