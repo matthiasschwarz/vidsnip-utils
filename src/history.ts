@@ -2,13 +2,13 @@ import { IndexableSection, Section } from './section'
 import { Timestamp } from './timestamp'
 
 export enum ChangeType {
-  SectionAdd,
-  SectionRemove,
-  SectionSplit,
-  SectionSwap,
-  TimestampUpdate,
-  SectionStartUpdate,
-  SectionEndUpdate,
+  SectionAdd = 'sectionAdd',
+  SectionRemove = 'sectionRemove',
+  SectionSplit = 'sectionSplit',
+  SectionSwap = 'sectionSwap',
+  TimestampUpdate = 'timestampUpdate',
+  SectionStartUpdate = 'sectionStartUpdate',
+  SectionEndUpdate = 'sectionEndUpdate',
 }
 
 export interface Change {
@@ -35,23 +35,4 @@ export interface TimestampUpdate extends Change {
 export interface SectionSwap extends Change {
   old: number
   new: number
-}
-
-export function getTypeTooltip(type: ChangeType) {
-  switch (type) {
-    case ChangeType.SectionAdd:
-      return 'section add'
-    case ChangeType.SectionRemove:
-      return 'section deletion'
-    case ChangeType.SectionSwap:
-      return 'section index swap'
-    case ChangeType.SectionSplit:
-      return 'section split'
-    case ChangeType.SectionStartUpdate:
-      return 'start section change'
-    case ChangeType.SectionEndUpdate:
-      return 'end section change'
-    case ChangeType.TimestampUpdate:
-      return 'timestamp change'
-  }
 }
